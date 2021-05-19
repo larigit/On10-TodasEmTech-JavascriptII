@@ -8,3 +8,14 @@ const usuarios = [
     {user:238, name: 'Isis', idade:34 },
     {user:239, name: 'Pietra', idade:23 }
 ]
+const primeiroElemento = listagemDeFrutas.shift();
+const primeiroUsuario = usuarios.shift();
+
+console.log(primeiroElemento);
+console.log(primeiroUsuario);
+
+var str1 = 'hello';
+var str2 = 'world';
+var res = `${str1} ${str2}`;
+
+console.log(res);

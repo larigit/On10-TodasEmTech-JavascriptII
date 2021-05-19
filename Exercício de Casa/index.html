@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+
+    <title>MyAudibleBooks</title>
+</head>
+<body>
+    <div id="pageTitle">
+        <img src="./img/bookIcon.png" alt="Book icon">
+        <h1>MyAudibleBooks</h1>
+    </div>
+    <form action="" onsubmit="addBookOnList(event)">
+        <div id="titleDiv">
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title">
+        </div>
+
+        <div id="authorDiv">
+            <label for="author">Autor</label>
+            <input type="text" id="author" name="author"> 
+        </div>
+
+        <div id="isbnDiv">
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" name="isbn">
+        </div>
+
+        <div id="publishDateDiv">
+            <label for="publishDate">Data de Publicação</label>
+            <input type="date" id="publishDate" name="publishDate">
+        </div>
+
+        <div id="pagesDiv">
+            <label for="pages">Páginas</label>
+            <input type="text" id="pages" name="pages">
+        </div>
+
+        <div id="buttonDiv">
+            <input type="submit" name="addBook" id="addBook" value="Adicionar Livro">
+        </div>
+        <div id="answer">
+            <table id="table" >
+                <tr style="background-color: #ddd;">
+                    <td id="titleTable">Title</td>
+                    <td id="authorTable">Author</td>
+                    <td id="isbnTable">ISBN#</td>
+                    <td id="publishDateTable">Data da Publicação</td>
+                    <td id="pagesTable">Páginas</td>
+                    <td id="toRemoveIcon"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+<span></span>
+
+    
+
+    <script src="./script/script.js"></script>
+</body>
+</html>

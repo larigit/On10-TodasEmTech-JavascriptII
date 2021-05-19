@@ -1,0 +1,147 @@
+* {
+    font-family: 'Girassol', cursive;
+}
+
+#pageTitle{
+    display: flex;
+    justify-content: center;
+    font-size: 1.7rem;
+    align-items: center;
+}
+#pageTitle img{
+    height: 8rem;
+}
+
+body {
+    font-size: 1.2rem;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+form div input{
+    padding: 0.5rem;
+}
+
+#buttonDiv{
+    padding-top: 1.7rem;
+}
+
+#buttonDiv input{
+    border: 1px solid;
+    font-size: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;  
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+#buttonDiv input:hover{
+    transform: scale(0.99); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+}
+
+#answer{
+    border: 3px solid #ddd;
+    margin-top: 51px;
+    padding: 0;
+}
+
+table{
+    margin: 0rem 0 20rem 0;
+    border-top: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+    justify-content: center;
+    
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.remove{
+    height:1.7rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+    th, td {
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+    #pageTitle{
+        font-size: 1.4rem;
+    }
+    #pageTitle img{
+        height: 6rem;
+    }
+    body {
+        font-size: 1rem;
+    }
+    #buttonDiv input{
+        font-size: 1rem;
+    }
+    .remove{
+        height: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    th, td {
+        display: grid;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+    #pageTitle{
+        font-size: 1rem;
+    }
+    #pageTitle img{
+        height: 4.5rem;
+    }
+    body {
+        font-size: 0.8rem;
+    }
+    #buttonDiv input{
+        font-size: 0.8rem;
+    }
+    .remove{
+        height: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    th, td {
+        display: grid;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+    #pageTitle{
+        font-size: 0.7rem;
+    }
+    #pageTitle img{
+        height: 3rem;
+    }
+    body {
+        font-size: 0.7rem;
+    }
+    #buttonDiv input{
+        font-size: 0.7rem;
+    }
+    .remove{
+        height: 0.7rem;
+    }
+}

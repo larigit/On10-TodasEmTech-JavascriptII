@@ -49,15 +49,6 @@ let books = [
     }
 ]
 
-//EXIBINDO APENAS DATA
-books.forEach((item)=>{
-    let dataAtual = new Date(item.published); 
-    let dia = dataAtual.getUTCDate().toString();
-    let mes = (dataAtual.getUTCMonth()+1).toString();
-    item.published = `${dataAtual.getUTCFullYear().toString()}-${(mes.length === 1) ? '0'+mes : mes}-${(dia.length === 1) ? '0'+dia : dia}`;
-});
-
-
 //ARRAY QUE VAI ARMAZENAR ISBN DOS LIVROS DA LISTA
 //se um livro for excluido, ele é excluido do array
 //se um livro já existir no array, o usuario não pode adicionar novamente
@@ -65,8 +56,9 @@ let isbn = [];
 
 
 //EXIBINDO LISTA DE LIVROS NA APLICAÇÃO
-function printBooks(){
+function printBooks(isbn){
     books.forEach((item)=>{
+        //se der undefined, ou seja, livro não está na lista, o livro é printado
         if((isbn.find(prop=>prop===item.isbn))===undefined){
             let tableRef = document.getElementById('table');
             let newRow = tableRef.insertRow(-1);
@@ -95,19 +87,22 @@ function printBooks(){
             newCell.innerHTML = '<img id="remove" src="./img/removeIcon.png" class="remove">';
     
             isbn.push(item.isbn);
+        }else{
+            console.log(`JA TEM ESSE ${item.isbn}`);
         }
     });
 
 };
-printBooks();
+    
 
-//VERIFINCANDO SE BOOK JA EXISTE NA LISTA
+//dando problema!!!!
 function verify(book){
-    if((books.find(prop=>prop.isbn===book.isbn))===undefined){ 
+    // console.log(isbn);
+    if((isbn.find(prop=>prop===book.isbn))===undefined){
         books.push(book);
     }
     else{
-        alert(`O livro "${book.title}" com isbn: ${book.isbn} já existe! Verifique abaixo!`);
+        alert("este livro ja existe");
     }
 }
 
@@ -141,7 +136,7 @@ function addBookOnList(event){
     if(document.getElementById('isbn').value===''){
         alert(`O campo ISBN é obrigatório, por favor, preencher!`)
         list = 0;
-    }else{     
+    }else{
         book.isbn = document.getElementById('isbn').value;
     }
 
@@ -159,14 +154,17 @@ function addBookOnList(event){
     }
 
     if(list === 1){
+
+        //add função pra verificar se ja tem esse book
+
         verify(book);
-        printBooks();
+        printBooks(isbn);
     }
     clear();
 };
 
 
-//LIMPANDO INPUTS
+
 function clear(){
     document.getElementById('title').value = "";
     document.getElementById('author').value = "";
@@ -176,17 +174,22 @@ function clear(){
 }
 
 
-//REMOVENDO ITEM DA LISTA
 document.getElementById('answer').addEventListener('click', (event) => {
     let isbnTarget = event.target.closest('tr').children[2].textContent;
     books.forEach((item, index)=>{
         if(item.isbn === isbnTarget){
             books.splice(index, 1);
-            isbn.splice(index, 1);
         }
+        console.log(isbnTarget, item.isbn);
     });
+    console.log(books);
+
     if(event.target.className === 'remove'){
         event.target.parentElement.parentElement.remove();
         
     }
 });
+
+
+// document.getElementById('remove').closest('tr').children[2].textContent
+//excluir do vetor  
